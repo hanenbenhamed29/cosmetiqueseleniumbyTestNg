@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-13T15:37:27 CET" name="Suite" finished-at="2025-08-13T15:37:53 CET" duration-ms="26116">
+    <groups>
+    </groups>
+    <test started-at="2025-08-13T15:37:27 CET" name="Test" finished-at="2025-08-13T15:37:53 CET" duration-ms="26116">
+      <class name="cosmetiqueTests.SearchProductTest">
+        <test-method signature="searchMyprod()[pri:2, instance:cosmetiqueTests.SearchProductTest@6f03482]" started-at="2025-08-13T15:37:43 CET" name="searchMyprod" finished-at="2025-08-13T15:37:45 CET" duration-ms="1993" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchMyprod -->
+      </class> <!-- cosmetiqueTests.SearchProductTest -->
+      <class name="cosmetiqueTests.LoginTest">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:cosmetiqueTests.LoginTest@3eb25e1a]" started-at="2025-08-13T15:37:27 CET" name="setUp" finished-at="2025-08-13T15:37:30 CET" duration-ms="3101" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://cosmetique.tn/connexion?back=https%3A%2F%2Fcosmetique.tn%2F]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginTest()[pri:1, instance:cosmetiqueTests.LoginTest@3eb25e1a]" started-at="2025-08-13T15:37:30 CET" name="loginTest" finished-at="2025-08-13T15:37:43 CET" duration-ms="12688" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method is-config="true" signature="close()[pri:0, instance:cosmetiqueTests.LoginTest@3eb25e1a]" started-at="2025-08-13T15:37:51 CET" name="close" finished-at="2025-08-13T15:37:53 CET" duration-ms="2055" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- cosmetiqueTests.LoginTest -->
+      <class name="cosmetiqueTests.CartTest">
+        <test-method signature="addProductCart()[pri:3, instance:cosmetiqueTests.CartTest@9d5509a]" started-at="2025-08-13T15:37:45 CET" name="addProductCart" finished-at="2025-08-13T15:37:50 CET" duration-ms="5026" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductCart -->
+      </class> <!-- cosmetiqueTests.CartTest -->
+      <class name="cosmetiqueTests.LogOutTest">
+        <test-method signature="logOutApplication()[pri:4, instance:cosmetiqueTests.LogOutTest@179ece50]" started-at="2025-08-13T15:37:50 CET" name="logOutApplication" finished-at="2025-08-13T15:37:51 CET" duration-ms="1148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logOutApplication -->
+      </class> <!-- cosmetiqueTests.LogOutTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
