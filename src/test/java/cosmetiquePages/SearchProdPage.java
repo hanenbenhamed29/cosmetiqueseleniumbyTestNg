@@ -12,7 +12,7 @@ public class SearchProdPage {
 	
 	private static final By inputSearch=By.name("s");
 	private static final By iconeSearch=By.className("search-btn");
-	private static final By nameProduct=By.xpath("//*[contains(text(), 'Alania Masque capillaire Réparateur Prodige 150 g')]");
+	private static final By nameProduct=By.xpath("//h3[contains(@class,'product-title')]/a");
 	
 	
 	public SearchProdPage(WebDriver driver) {
