@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cosmetiqueTests.CartTest">
+      <class name="cosmetiqueTests.SearchProductTest">
         <methods>
-          <include name="addProductCart"/>
           <include name="close"/>
+          <include name="searchMyprod"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- cosmetiqueTests.CartTest -->
+      </class> <!-- cosmetiqueTests.SearchProductTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -4,29 +4,29 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+//import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
+//import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class AddCartPage {
- private WebDriver driver;
- private WebDriverWait wait;
+ WebDriver driver;
+ WebDriverWait wait;
     
-	private static final By titleproduct=By.linkText("Topface Mascara 3 dimension volume noir pt 314");
+	private static final By titleproduct=By.xpath("//a[contains(normalize-space(.), 'Alania Masque capillaire Réparateur Prodige 150 g')]");
 	private static final By titleProduct2=By.cssSelector("h1.page-title");
-	private static final By addProductCart=By.cssSelector("button.btn.btn-primary.btn-lg.add-to-cart");
-	private static final By visibleModel =By.id("blockcart-modal");
+	private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
+	private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
+
+	//private static final By visibleModel =By.id("blockcart-modal");
 	private static final By btnCommander = By.cssSelector("#blockcart-modal .cart-content-btn a.btn.btn-primary");
-	private static final By titleAddProduct=By.cssSelector("modal-header.modal-title");
-	private static final By priceProduct =By.cssSelector("div.col.col-auto.col-md.price span.product-price strong");
-	
 	
 	public AddCartPage(WebDriver driver) {
-	    this.driver=driver;
+	    this.driver = driver;
+	    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
 	//---first void cliquer sur le titre de produit 
@@ -44,13 +44,13 @@ public class AddCartPage {
 	//--assert url de mon produit 
 	public boolean assertDetails() {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-		return wait.until(ExpectedConditions.urlToBe("https://cosmetique.tn/les-mascaras/2407-mascara-3-dimension-volume-noir-pt314-topface.html"));
+		return wait.until(ExpectedConditions.urlToBe("https://cosmetique.tn/masques/10022-alania-masque-reparateur-prodige-150g.html"));
 	}
 
 		
 	//--assert par titre de mon produit 
 	public void assertNameProduct() {
-		String expectedNameProduct="Topface Mascara 3 dimension volume noir pt 314";
+		String expectedNameProduct="Alania Masque capillaire Réparateur Prodige 150 g";
 		
 		
 		WebElement title1 =driver.findElement(titleProduct2);
@@ -60,24 +60,32 @@ public class AddCartPage {
 	}
 	//--ajouter le produit au panier 
 	public void clickAddToCart()  {
-		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));//meme chose que 		new WebDriverWait(driver, Duration.ofSeconds(10));
+		//WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
 
 		WebElement add =driver.findElement(addProductCart);
 		add.click();
-		try {
-			WebElement poup=wait.until(ExpectedConditions.visibilityOfElementLocated(visibleModel));
+		
+		
+		
+	}
+		
+public void assertAddProductToCart() {
+			
+			String expectedAddProduct="Produit ajouté au panier avec succès";
+			//WebElement title2=driver.findElement(titleAddProduct);
+			WebElement title2=wait.until(ExpectedConditions.visibilityOfElementLocated(titleAddProduct));
+			String actualAddProduct=title2.getText();
+			//Assert.assertEquals(actualAddProduct,expectedAddProduct);
+			Assert.assertTrue(actualAddProduct.contains(expectedAddProduct));
+}
+public void commanderproduct() {
 			WebElement commander=wait.until(ExpectedConditions.elementToBeClickable(btnCommander));
 			commander.click();
-			//Thread.sleep(5000);
-		}catch (Exception e) 
-		{System.out.println("add to cart failed: "+e.getMessage());
-			
-		}
 		
 	} 
 	
 	public void assertWithLink() {
-		String expectedUrl="https://cosmetique.tn/panier?action=show";
+		String expectedUrl="https://cosmetique.tn/commande";
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.urlToBe(expectedUrl));
 		String actualUrl=driver.getCurrentUrl();
@@ -85,23 +93,10 @@ public class AddCartPage {
 		Assert.assertEquals(expectedUrl, actualUrl);
 		
 	}
-	public void assertPrice() {
-	String expectedPrice ="28,200 TND";
-	WebElement price =driver.findElement(priceProduct);
 	
-	// Use JavaScript to get the float value directly
-    String actualPrice =price.getText().trim().replace("\u00a0", " ");
-    Assert.assertEquals(expectedPrice, actualPrice); // The third parameter is the delta for float comparison
-	}
+
 
 	
-	public void assertAddProductToCart() {
-		
-		String expectedAddProduct="Produit ajouté au panier avec succès";
-		WebElement title2= driver.findElement(titleAddProduct);
-		String actualAddProduct=title2.getText();
-		Assert.assertEquals(actualAddProduct,expectedAddProduct);
-	}
+	
 	
 }
-

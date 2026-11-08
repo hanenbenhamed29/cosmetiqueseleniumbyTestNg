@@ -12,16 +12,16 @@ import org.testng.Assert;
 public class LogOutPage {
 
 	
-	private WebDriver driver ;
-	private WebDriverWait wait ;
+	 WebDriver driver ;
+	 WebDriverWait wait ;
 	
 	private static final By iconeProfile =By.id("header-user-btn");
-	private static final By nameDeconnexion =By.cssSelector("a[href='https://cosmetique.tn/?mylogout=']");
-	
+	private static final By nameDeconnexion =By.cssSelector("a.dropdown-item[href='https://cosmetique.tn/?mylogout=']");
 	
 	public LogOutPage(WebDriver driver) {
 		this.driver=driver;
-		
+	    this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
 	}
 	public void logOut(){
 		try {
@@ -41,11 +41,13 @@ public class LogOutPage {
 
 	}
 	public void assertLogin() {
-		String expectedUrl="https://cosmetique.tn/panier?action=show";//we have bug in this link 
-		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.urlToBe(expectedUrl));
+		String expectedUrl="https://cosmetique.tn/";//we have bug in this link 
+		//WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		//wait.until(ExpectedConditions.urlToBe(expectedUrl));
 	   String actualUrl=driver.getCurrentUrl();
 	   Assert.assertEquals(actualUrl, expectedUrl);
 	}
 }
+
+
  

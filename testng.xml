@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
 <suite name="Suite">
-  <test thread-count="5" name="Test">
-  
-  <parameter name="url" value="https://cosmetique.tn/connexion?back=https%3A%2F%2Fcosmetique.tn%2F"></parameter>
-    <classes>
-    <class name="cosmetiqueTests.LoginTest"/>
-      <class name="cosmetiqueTests.SearchProductTest"/>
-      <class name="cosmetiqueTests.CartTest"/>
-      <class name="cosmetiqueTests.LogOutTest"/>
-    </classes>
-  </test> <!-- Test -->
-  
-</suite> <!-- Suite -->
+    <test name="Test">
+
+        <parameter name="url" value="https://cosmetique.tn/connexion?back=https%3A%2F%2Fcosmetique.tn%2F"/>
+
+        <classes>
+            <class name="cosmetiqueTests.LoginTest"/>
+            <class name="cosmetiqueTests.SearchProductTest"/>
+            <class name="cosmetiqueTests.CartTest"/>
+            
+             <class name="cosmetiqueTests.LogOutTest"/>
+
+
+
+      
+          
+        </classes>
+
+    </test>
+</suite>
+
+
+
+

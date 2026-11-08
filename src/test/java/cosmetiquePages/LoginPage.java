@@ -8,9 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
-private  WebDriver driver;
-private WebDriverWait wait;
-
+ WebDriver driver;
+ WebDriverWait wait;
 private static final By inputEmail = By.id("field-email");
 private static final By inputPassword = By.id("field-password");
 private static final By inputConnexion = By.id("submit-login");
@@ -35,7 +34,6 @@ public boolean assertHomePage() {
 	
 }
 }
-
 
 
 	
