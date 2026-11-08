@@ -16,7 +16,7 @@ public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
-	private static final By titleproduct=By.xpath("//h3[contains(@class,'product-title')]/a[contains(normalize-space(.),'Alania Masque capillaire Réparateur Prodige 150 g')]");
+	private static final By titleproduct=By.xpath("//img[@alt='Alania Masque capillaire Réparateur Prodige 150 g']/ancestor::a[1]");
 	private static final By titleProduct2=By.cssSelector("h1.page-title");
 	private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
 	private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
