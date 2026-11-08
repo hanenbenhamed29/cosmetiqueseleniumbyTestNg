@@ -1,5 +1,7 @@
 package cosmetiquePages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +22,8 @@ public class SearchProdPage {
 	
 	public SearchProdPage(WebDriver driver) {
 		this.driver=driver;
-		
+	   wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
 		
 	}
 	
