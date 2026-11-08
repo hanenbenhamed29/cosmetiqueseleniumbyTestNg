@@ -4,11 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class SearchProdPage {
 
 	private WebDriver driver;
+	private WebDriverWait wait;
 	
 	private static final By inputSearch=By.name("s");
 	private static final By iconeSearch=By.className("search-btn");
@@ -30,7 +33,8 @@ public class SearchProdPage {
 		
 		//button.click();
 		button.sendKeys(Keys.ENTER);
-	
+        wait.until(ExpectedConditions.visibilityOfElementLocated(nameProduct));
+
 		
 	}
 	public void assertProductName() {
