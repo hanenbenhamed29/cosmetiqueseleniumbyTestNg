@@ -26,7 +26,6 @@ public void setUp() {
     options.addArguments("--proxy-bypass-list=*");
     options.addArguments("--ignore-certificate-errors");
 
-    driver = new ChromeDriver(options);
 
     driver = new ChromeDriver(options);
 
