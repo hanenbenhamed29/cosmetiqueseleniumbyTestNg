@@ -3,7 +3,7 @@ package cosmetiquePages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-//import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +16,7 @@ public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
-	private static final By titleproduct=By.xpath("//img[@alt='Alania Masque capillaire Réparateur Prodige 150 g']/ancestor::a[1]");
+	private static final By titleproduct=By.xpath("//img[@class='img-fluid js-lazy-product-image lazy-product-image product-thumbnail-first entered loaded']");
 	private static final By titleProduct2=By.cssSelector("h1.page-title");
 	private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
 	private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
@@ -34,9 +34,9 @@ public class AddCartPage {
 		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
-		//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
-		//((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
-		product.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+		//product.click();
 	}
 	
 	
