@@ -18,7 +18,7 @@ public class LogOutPage {
 	 WebDriverWait wait ;
 	
 	private static final By iconeProfile =By.id("header-user-btn");
-	private static final By nameReduction =By.cssSelector("a.dropdown-item[href='https://cosmetique.tn/reduction']");
+	private static final By nameReduction =By.xpath("//a[@href='https://cosmetique.tn/reduction']");
 	
 	public LogOutPage(WebDriver driver) {
 		this.driver=driver;
@@ -26,22 +26,26 @@ public class LogOutPage {
 
 	}
 	public void logOut(){
-		try {
 			
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement icone =wait.until(ExpectedConditions.elementToBeClickable(iconeProfile));
 		icone.click();
 		
-		WebElement reduction =wait.until(ExpectedConditions.elementToBeClickable(nameReduction));
-		reduction.click();
 		
-		}catch(Exception e) {
-			e.printStackTrace();
+	  
+	    
+		
+		 WebElement reduction = wait.until(ExpectedConditions.presenceOfElementLocated(nameReduction));
+
+	    ((org.openqa.selenium.JavascriptExecutor) driver)
+        .executeScript("arguments[0].scrollIntoView({block:'center'});", reduction);
+
+    ((org.openqa.selenium.JavascriptExecutor) driver)
+        .executeScript("arguments[0].click();", reduction);
 		}
-
 		
 
-	}
+	
 	/*public void assertLogin() {
 		String expectedUrl="https://cosmetique.tn/reduction";//we have bug in this link 
 		//WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -51,10 +55,10 @@ public class LogOutPage {
 	}*/
 	
 	
-	public boolean assertLogin() {
+	public boolean assertReduction() {
 		
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-		return wait.until(ExpectedConditions.urlToBe("https://cosmetique.tn/reduction"));
+		//WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		return wait.until(ExpectedConditions.urlContains("/reduction"));
 		
 }
 

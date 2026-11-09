@@ -78,7 +78,7 @@ public void assertAddProductToCart() {
 			//Assert.assertEquals(actualAddProduct,expectedAddProduct);
 			Assert.assertTrue(actualAddProduct.contains(expectedAddProduct));
 }
-public void commanderproduct() {
+   public void commanderproduct() {
 			WebElement commander=wait.until(ExpectedConditions.elementToBeClickable(btnCommander));
 			commander.click();
 		
