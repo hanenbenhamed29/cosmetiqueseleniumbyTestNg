@@ -35,7 +35,10 @@ public class AddCartPage {
 		
 		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+		//((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+	    wait.until(ExpectedConditions.elementToBeClickable(titleproduct));
+
+	    driver.findElement(titleproduct).click();
 		//product.click();
 	}
 	
