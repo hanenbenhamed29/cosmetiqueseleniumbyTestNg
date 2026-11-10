@@ -13,17 +13,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+
 public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
- private static final By titleproduct=By.xpath("//a[contains(normalize-space(.), 'Alania Masque capillaire Réparateur Prodige 150 g')]");
- private static final By titleProduct2=By.cssSelector("h1.page-title");
- private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
- private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
-
-	//private static final By visibleModel =By.id("blockcart-modal");
-	private static final By btnCommander = By.cssSelector("#blockcart-modal .cart-content-btn a.btn.btn-primary");
+   private static final By titleproduct=By.xpath("//h3[contains(@class,'product-title')]/a[contains(@href,'10022-alania-masque-reparateur-prodige-150g.html')]");
+   private static final By titleProduct2=By.cssSelector("h1.page-title");
+   private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
+   private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
+   private static final By btnCommander = By.cssSelector("#blockcart-modal .cart-content-btn a.btn.btn-primary");
 	
 	public AddCartPage(WebDriver driver) {
 	    this.driver = driver;
@@ -32,25 +31,17 @@ public class AddCartPage {
 	
 	
 	//---first void cliquer sur le titre de produit 
-
-	//---first void cliquer sur le titre de produit 
+ 
 	public void clickAllMyProduct() {
 		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
-		//product.click();
+}
 	
 	
-	 try {
-         Thread.sleep(2000);
-     } catch (InterruptedException e) {
-         e.printStackTrace();
-     }}
-	
-	
-	//--assert url de mon produit 
+//--assert url de mon produit 
 	public boolean assertDetails() {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		return wait.until(ExpectedConditions.urlToBe("https://cosmetique.tn/masques/10022-alania-masque-reparateur-prodige-150g.html"));
@@ -78,7 +69,7 @@ public class AddCartPage {
 		
 	}
 		
-public void assertAddProductToCart() {
+  public void assertAddProductToCart() {
 			
 			String expectedAddProduct="Produit ajouté au panier avec succès";
 			//WebElement title2=driver.findElement(titleAddProduct);
@@ -105,7 +96,6 @@ public void assertAddProductToCart() {
 	
 
 
-	
-	
-	
 }
+	
+	
