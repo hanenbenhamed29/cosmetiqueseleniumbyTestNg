@@ -18,7 +18,7 @@ public class ReductionPage {
 	 WebDriverWait wait ;
 	
 	private static final By iconeProfile =By.id("header-user-btn");
-	private static final By nameReduction =By.xpath("//a[contains(normalize-space(.),'Bons de réduction')]");
+	private static final By nameReduction =By.cssSelector("a[href*='/reduction']");
 	
 	public ReductionPage(WebDriver driver) {
 		this.driver=driver;
