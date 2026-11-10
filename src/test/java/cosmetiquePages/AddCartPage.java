@@ -3,7 +3,7 @@ package cosmetiquePages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-//import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.JavascriptExecutor;
 
 //import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
-  // private static final By titleproduct=By.xpath("//h3[contains(@class,'product-title')]/a[contains(@href,'10022-alania-masque-reparateur-prodige-150g.html')]");
+   private static final By titleproduct=By.xpath("//h3[contains(@class,'product-title')]/a[contains(@href,'10022-alania-masque-reparateur-prodige-150g.html')]");
    private static final By titleProduct2=By.cssSelector("h1.page-title");
    private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
    private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
@@ -31,22 +31,14 @@ public class AddCartPage {
 	
 	
 	//---first void cliquer sur le titre de produit 
+ 
 	public void clickAllMyProduct() {
-
-	    String productUrl =
-	        "https://cosmetique.tn/masques/10022-alania-masque-reparateur-prodige-150g.html";
-
-	    // Ouvrir directement la page du produit
-	    driver.get(productUrl);
-
-	    // Attendre le chargement de la page
-	    wait.until(ExpectedConditions.urlToBe(productUrl));
-
-	    // Attendre l'affichage du titre
-	    wait.until(
-	        ExpectedConditions.visibilityOfElementLocated(titleProduct2)
-	    );
-	}
+		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		
+		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+}
 	
 	
 //--assert url de mon produit 
