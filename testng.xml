@@ -10,7 +10,7 @@
             <class name="cosmetiqueTests.SearchProductTest"/>
             <class name="cosmetiqueTests.CartTest"/>
             
-             <class name="cosmetiqueTests.LogOutTest"/>
+             <class name="cosmetiqueTests.ReductionTest"/>
 
 
 
