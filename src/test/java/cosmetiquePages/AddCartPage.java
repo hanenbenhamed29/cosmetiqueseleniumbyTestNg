@@ -17,7 +17,7 @@ public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
- private static final By titleproduct =By.cssSelector("a[href*='10022-alania-masque-reparateur-prodige-150g.html']");
+ private static final By titleproduct=By.xpath("//a[contains(normalize-space(.), 'Alania Masque capillaire Réparateur Prodige 150 g')]");
  private static final By titleProduct2=By.cssSelector("h1.page-title");
  private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
  private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
@@ -33,26 +33,18 @@ public class AddCartPage {
 	
 	//---first void cliquer sur le titre de produit 
 
+	//---first void cliquer sur le titre de produit 
 	public void clickAllMyProduct() {
-
-	    WebElement product = wait.until(
-	        ExpectedConditions.visibilityOfElementLocated(titleproduct)
-	    );
-
-	    ((JavascriptExecutor) driver).executeScript(
-	        "arguments[0].scrollIntoView({block:'center'});", product
-	    );
-
-	    ((JavascriptExecutor) driver).executeScript(
-	        "window.location.href = arguments[0].href;", product
-	    );
-
-	    wait.until(ExpectedConditions.urlToBe(
-	        "https://cosmetique.tn/masques/10022-alania-masque-reparateur-prodige-150g.html"
-	    ));
+		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		
+		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+		//product.click();
+	
 	
 	 try {
-         Thread.sleep(3000);
+         Thread.sleep(2000);
      } catch (InterruptedException e) {
          e.printStackTrace();
      }}
