@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+
 //import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,10 +17,10 @@ public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
-	private static final By titleproduct=By.xpath("//img[contains(@alt,'Alania Masque capillaire Réparateur Prodige 150 g')]");
-	private static final By titleProduct2=By.cssSelector("h1.page-title");
-	private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
-	private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
+ private static final By titleproduct = By.xpath("//h3[contains(@class,'product-title')]/a[contains(@href,'10022-alania-masque-reparateur-prodige')]");
+ private static final By titleProduct2=By.cssSelector("h1.page-title");
+ private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
+ private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
 
 	//private static final By visibleModel =By.id("blockcart-modal");
 	private static final By btnCommander = By.cssSelector("#blockcart-modal .cart-content-btn a.btn.btn-primary");
@@ -29,19 +30,16 @@ public class AddCartPage {
 	    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	
 	//---first void cliquer sur le titre de produit 
 	public void clickAllMyProduct() {
 		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
-		//((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
-	    wait.until(ExpectedConditions.elementToBeClickable(titleproduct));
-
-	    driver.findElement(titleproduct).click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
 		//product.click();
 	}
-	
 	
 	
 	//--assert url de mon produit 
