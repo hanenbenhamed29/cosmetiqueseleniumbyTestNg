@@ -50,8 +50,12 @@ public class AddCartPage {
 	    wait.until(ExpectedConditions.urlToBe(
 	        "https://cosmetique.tn/masques/10022-alania-masque-reparateur-prodige-150g.html"
 	    ));
-	}
-
+	
+	 try {
+         Thread.sleep(3000);
+     } catch (InterruptedException e) {
+         e.printStackTrace();
+     }}
 	
 	
 	//--assert url de mon produit 
