@@ -4,12 +4,9 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
-//import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -34,7 +31,6 @@ public class AddCartPage {
  
 	public void clickAllMyProduct() {
 		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
-		
 		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
@@ -60,8 +56,6 @@ public class AddCartPage {
 	}
 	//--ajouter le produit au panier 
 	public void clickAddToCart()  {
-		//WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
-
 		WebElement add =driver.findElement(addProductCart);
 		add.click();
 		
@@ -72,10 +66,8 @@ public class AddCartPage {
   public void assertAddProductToCart() {
 			
 			String expectedAddProduct="Produit ajouté au panier avec succès";
-			//WebElement title2=driver.findElement(titleAddProduct);
 			WebElement title2=wait.until(ExpectedConditions.visibilityOfElementLocated(titleAddProduct));
 			String actualAddProduct=title2.getText();
-			//Assert.assertEquals(actualAddProduct,expectedAddProduct);
 			Assert.assertTrue(actualAddProduct.contains(expectedAddProduct));
 }
    public void commanderproduct() {
