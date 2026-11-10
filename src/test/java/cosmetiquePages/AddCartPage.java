@@ -30,30 +30,11 @@ public class AddCartPage {
 	//---first void cliquer sur le titre de produit 
  
 	public void clickAllMyProduct() {
-
-	    // Ouvrir la page Catalogue Masques
-	    driver.get("https://cosmetique.tn/80-masques");
-
-	    // Attendre que le produit soit présent
-	    WebElement product = wait.until(
-	        ExpectedConditions.presenceOfElementLocated(titleproduct)
-	    );
-
-	    // Faire défiler jusqu'au produit
-	    ((JavascriptExecutor) driver).executeScript(
-	        "arguments[0].scrollIntoView({block:'center'});", product
-	    );
-
-	    // Cliquer une seule fois avec JavaScript
-	    ((JavascriptExecutor) driver).executeScript(
-	        "arguments[0].click();", product
-	    );
-
-	    // Attendre l'ouverture de la page produit
-	    wait.until(ExpectedConditions.urlToBe(
-	        "https://cosmetique.tn/masques/10022-alania-masque-reparateur-prodige-150g.html"
-	    ));
-	}
+		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+}
 	
 	
 //--assert url de mon produit 
