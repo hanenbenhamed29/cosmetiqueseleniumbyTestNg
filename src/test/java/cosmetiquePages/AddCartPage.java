@@ -17,7 +17,7 @@ public class AddCartPage {
  WebDriver driver;
  WebDriverWait wait;
     
- private static final By titleproduct =By.cssSelector("a[href*='10022-alania-masque-reparateur-prodige']");
+ private static final By titleproduct =By.xpath("/html/body/main/section/div[3]/div[3]/section/section/div[3]/div[2]/div[1]/div/article/div[2]/h3");
  private static final By titleProduct2=By.cssSelector("h1.page-title");
  private static final By addProductCart=By.xpath("//button[@class='btn btn-primary btn-lg add-to-cart']");
  private static final By titleAddProduct=By.xpath("//div[@class='modal-header']/span[@class='modal-title' and contains(.,'Produit ajouté au panier avec succès')]");
@@ -33,12 +33,12 @@ public class AddCartPage {
 	
 	//---first void cliquer sur le titre de produit 
 	public void clickAllMyProduct() {
-	    System.out.println("URL = " + driver.getCurrentUrl());
-	    System.out.println("TITRE = " + driver.getTitle());
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-	    WebElement product = wait.until(ExpectedConditions.presenceOfElementLocated(titleproduct));
-	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
-	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+		WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+		
+		WebElement product=wait.until(ExpectedConditions.visibilityOfElementLocated(titleproduct));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", product);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", product);
+		//product.click();
 	}
 	
 	
